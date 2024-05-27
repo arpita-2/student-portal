@@ -1,8 +1,10 @@
 import { dataOfStudents } from "./utils/mockdata";
+import Search from "./components/Search";
+import Button from "./components/Button";
 
 //navigation bar
 
-const NavigationBar = () => {
+export const NavigationBar = () => {
   return (
     <div>
       <nav className="nav">
@@ -33,8 +35,8 @@ export const StudentsData = (props) => {
         <h3>{name}</h3>
         <h4>{sports.join(", ")}</h4>
         <h4>{careerChoices.join(", ")}</h4>
-        <p>{grade}</p>
-        <p>{percentage}</p>
+        <p>Grade {grade}</p>
+        <p>{percentage}%</p>
       </card>
     </div>
   );
@@ -43,6 +45,9 @@ export const StudentsData = (props) => {
 const Content = () => {
   return (
     <div className="content">
+      <NavigationBar />
+      <Search />
+      <Button />
       {dataOfStudents.map((student) => (
         <StudentsData key={student} studData={student} />
       ))}

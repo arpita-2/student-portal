@@ -91,6 +91,11 @@
   margin-top: 20px;
 }
 
+.two-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 
 
   

@@ -36,6 +36,18 @@ export const Filter = () => {
           <button>Z-A</button>
         </div>
 
+
+        <div className="percentage-filter">
+          <label htmlFor="percentage-slider">Percentage Filter</label>
+          <input
+            type="range"
+            id="percentage-slider"
+            min="0"
+            max="100" 
+            defaultValue="50"
+          />
+        </div>
+
       </div>
       </div>
   )

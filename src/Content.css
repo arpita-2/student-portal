@@ -44,4 +44,19 @@
     padding: 20px;
     border-radius: 5px;
   }
+
+  .filter-section {
+    margin-bottom: 20px;
+  }
+  
+  .order-buttons button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+
   

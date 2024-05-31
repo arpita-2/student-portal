@@ -96,6 +96,27 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grade-filter {
+  margin-left: auto;
+  display: flex;
+  
+}
+
+.student-grade {
+  flex-direction: column;
+}
+
+.student-list-card {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-column: 2 / 5;
+}
+
+
 
 
   

@@ -1,29 +1,43 @@
+import "./Content.css";
+
 import { dataOfStudents } from "./utils/mockdata";
 import Search from "./components/Search";
-import Button from "./components/Button";
+
+
 
 //navigation bar
 
-export const NavigationBar = () => {
+export const NavBar = () => {
   return (
-    <div>
-      <nav className="nav">
-        <div className="main-title">
-          Student Portal
-        </div>
-
-        <div className="nav-items">
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  )
-}
-
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <a href="#">My Website</a>
+      </div>
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a href="#" className="nav-link">
+            Home
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link">
+            About
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link">
+            Services
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 //filter section
 
 export const Filter = () => {
@@ -101,32 +115,52 @@ export const Filter = () => {
   );
 };
 
+
+
+
 export const StudentsData = (props) => {
   //stuData is prop. Then did destructuring of prop.
-  const { studData } = props;
-  const { name, grade, percentage, sports, careerChoices } = studData;
+  //const { studData } = props;
+  //const { name, grade, percentage, sports, careerChoices } = studData;
 
   return (
-    <div>
-      <card>
-        <h3>{name}</h3>
-        <h4>{sports.join(", ")}</h4>
-        <h4>{careerChoices.join(", ")}</h4>
-        <p>Grade {grade}</p>
-        <p>{percentage}%</p>
-      </card>
+    <div className="student-list-card">
+      <div className="student-count">Students - {dataOfStudents.length}</div>
+
+      <ul>
+        {dataOfStudents.map((student, index) => (
+          <li key={index} className="student-card">
+            <div className="avatar">
+              <img
+                src={`https://i.pravatar.cc/50?img=${index + 1}`}
+                alt="Avatar"
+              />
+            </div>
+            <div className="student-info">
+              <h3>{student.name}</h3>
+              <p className="student-grade">Grade: {student.grade}</p>
+              <p>Percentage: {student.percentage}%</p>
+              <p>Sports: {student.sports.join(", ")}</p>
+              <p>Career Choices: {student.careerChoices.join(", ")}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
+
 
 const Content = () => {
   return (
     <div className="content">
       <NavigationBar />
       <Search />
-      {dataOfStudents.map((student) => (
-        <StudentsData key={student} studData={student} />
-      ))}
+      <div className="two-cards">
+      <Filter />
+      <StudentsData />
+
+      </div>
     </div>
   );
 };

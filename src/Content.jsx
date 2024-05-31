@@ -65,6 +65,35 @@ export const Filter = () => {
           </div>
         </div>
 
+        <div className="sports-filter">
+          <h3>Sports Filter</h3>
+          <div>
+            <input type="checkbox" id="cricket" name="sports" value="Cricket" />
+            <label htmlFor="cricket">Cricket</label>
+          </div>
+          <div>
+            <input type="checkbox" id="chess" name="sports" value="Chess" />
+            <label htmlFor="chess">Chess</label>
+          </div>
+          <div>
+            <input type="checkbox" id="tennis" name="sports" value="Tennis" />
+            <label htmlFor="tennis">Tennis</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="tennis" name="sports" value="Tennis" />
+            <label htmlFor="tennis">Basket Ball</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="tennis" name="sports" value="Tennis" />
+            <label htmlFor="tennis">Badminton</label>
+          </div>
+          </div>
+
+
+
+
       </div>
       </div>
   )

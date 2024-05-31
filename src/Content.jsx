@@ -98,8 +98,8 @@ export const Filter = () => {
 
       </div>
       </div>
-  )
-}
+  );
+};
 
 export const StudentsData = (props) => {
   //stuData is prop. Then did destructuring of prop.

@@ -91,6 +91,8 @@ export const Filter = () => {
           </div>
           </div>
 
+          <button className="clear-filters">Clear Filters</button>
+
 
 
 

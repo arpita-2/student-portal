@@ -67,5 +67,20 @@
     margin-bottom: 5px;
   }
 
+  .grade-filter,
+.sports-filter {
+  margin-top: 20px;
+}
+
+.grade-filter h3,
+.sports-filter h3 {
+  margin-bottom: 10px;
+}
+
+.grade-filter div,
+.sports-filter div {
+  margin-bottom: 5px;
+}
+
 
   

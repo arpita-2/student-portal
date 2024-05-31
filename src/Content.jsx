@@ -24,6 +24,23 @@ export const NavigationBar = () => {
   )
 }
 
+//filter section
+
+export const Filter = () => {
+  return (
+    <div className="filter-card">
+      <div className="filter-section">
+
+      <div className="order-buttons">
+          <button>A-Z</button>
+          <button>Z-A</button>
+        </div>
+
+      </div>
+      </div>
+  )
+}
+
 export const StudentsData = (props) => {
   //stuData is prop. Then did destructuring of prop.
   const { studData } = props;
@@ -47,7 +64,6 @@ const Content = () => {
     <div className="content">
       <NavigationBar />
       <Search />
-      <Button />
       {dataOfStudents.map((student) => (
         <StudentsData key={student} studData={student} />
       ))}

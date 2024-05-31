@@ -1,4 +1,5 @@
 import "./App.css";
+import "./Content.css";
 
 
 import Content from "./Content";

@@ -58,5 +58,14 @@
     cursor: pointer;
   }
 
+  .percentage-filter {
+    margin-top: 20px;
+  }
+  
+  .percentage-filter label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
 
   

@@ -117,6 +117,21 @@
 }
 
 
+.student-count {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.student-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 5px;
+}
+
+
 
 
   

@@ -1,4 +1,5 @@
 import "./Content.css";
+import Search from "./components/Search";
 
 import { dataOfStudents } from "./utils/mockdata";
 import Search from "./components/Search";
@@ -11,7 +12,7 @@ export const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <a href="#">My Website</a>
+        <a href="#">Student portal</a>
       </div>
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -128,20 +129,27 @@ export const StudentsData = (props) => {
       <div className="student-count">Students - {dataOfStudents.length}</div>
 
       <ul>
-        {dataOfStudents.map((student, index) => (
+      {dataOfStudents.map((student, index) => (
           <li key={index} className="student-card">
+            
+            <div className="student-info-container">
             <div className="avatar">
               <img
                 src={`https://i.pravatar.cc/50?img=${index + 1}`}
                 alt="Avatar"
               />
-            </div>
-            <div className="student-info">
+              </div>
+              <div className="student-info">
               <h3>{student.name}</h3>
+              <p className="student-sports">Sports: {student.sports.join(", ")}</p>
+              <p className="career-choices">Career Choices: {student.careerChoices.join(", ")}</p>
+              </div>
+
+
+              <div className="student-grade-container">
               <p className="student-grade">Grade: {student.grade}</p>
-              <p>Percentage: {student.percentage}%</p>
-              <p>Sports: {student.sports.join(", ")}</p>
-              <p>Career Choices: {student.careerChoices.join(", ")}</p>
+              <p className="student-percentage">Percentage: {student.percentage}%</p>
+              </div>
             </div>
           </li>
         ))}
@@ -154,11 +162,13 @@ export const StudentsData = (props) => {
 const Content = () => {
   return (
     <div className="content">
-      <NavigationBar />
-      <Search />
-      <div className="two-cards">
-      <Filter />
-      <StudentsData />
+      <NavBar />
+       
+      
+
+    <div className="two-cards">
+        <Filter />
+        <StudentsData />
 
       </div>
     </div>

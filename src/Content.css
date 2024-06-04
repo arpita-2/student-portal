@@ -1,48 +1,80 @@
+
+
+.search-bar {
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 68px;
+  
+}
+
+.search-bar-input {
+  width: 90%;
+  background-color: black;
+  border-radius: .375rem;
+  height: 2.25rem;
+}
+
+
+
+
+
 /*Navbar===================================================================================*/
 
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   
-  
-  
-  .navbar-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-   
-  }
-  
-  .nav-item {
-    margin-left: 20px;
-    
-  }
-  
-  .nav-link {
-    color: black;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #ccc;
-  }
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.navbar-brand a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ccc;
+}
+
+
 
   /*Navbar====================================================================================================*/
 
   /*Content==================================================================================================*/
 
   .filter-card {
-    background-color: #333;
+    background-color: black;
     color: #fff;
     padding: 20px;
+    border: 1px solid rgb(75, 67, 67);
     border-radius: 5px;
+    margin: 30px 0px;
+    
   }
 
   .filter-section {
@@ -67,6 +99,11 @@
     margin-bottom: 5px;
   }
 
+
+  .grade-filter {
+    display: flex;
+    flex-direction: column;
+  }
   .grade-filter,
 .sports-filter {
   margin-top: 20px;
@@ -96,15 +133,17 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+
+
+
+
 .grade-filter {
   margin-left: auto;
   display: flex;
   
 }
 
-.student-grade {
-  flex-direction: column;
-}
+
 
 .student-list-card {
   background-color: #000;
@@ -114,6 +153,7 @@
   grid-column-start: 2;
   grid-column-end: 5;
   grid-column: 2 / 5;
+  
 }
 
 
@@ -122,14 +162,15 @@
   font-weight: bold;
 }
 
-.student-card {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+ .student-card { 
+ 
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px; 
   padding: 10px;
-  background-color: #222;
-  border-radius: 5px;
-}
+  /*background-color: #222;*/
+  border-radius: 5px;  
+ } 
 
 
 .avatar {
@@ -137,17 +178,68 @@
 }
 
 .avatar img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border-radius: 999px;
 }
 
 .student-info h3 {
   margin: 0;
+  font-size: 16px;
+  text-align: left;
+  
 }
 
-.student-info p {
-  margin: 5px 0;
+.student-info {
+  padding: 12px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.student-info-container  {
+
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  
+  gap: 12px;
+  border: 1px solid rgb(75, 67, 67);
+  border-radius: 50px;
+  
+}
+
+.student-grade-container {
+ text-align: right;
+  
+}
+
+.student-grade {
+
+  
+  
+}
+
+.student-percentage p {
+
+  text-align: right;
+
+}
+
+.student-sports  {
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+
+.career-choices {
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+.student-count {
+  text-align: right;
 }
 
 

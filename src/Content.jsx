@@ -1,8 +1,9 @@
 import "./Content.css";
-import Search from "./components/Search";
+
 
 import { dataOfStudents } from "./utils/mockdata";
 import Search from "./components/Search";
+import { useState } from "react";
 
 
 
@@ -46,10 +47,11 @@ export const Filter = () => {
     <div className="filter-card">
       <div className="filter-section">
 
+      
       <div className="order-buttons">
-          <button>A-Z</button>
-          <button>Z-A</button>
-        </div>
+        <button >A-Z</button>
+        <button >Z-A</button>
+      </div>
 
 
         <div className="percentage-filter">
@@ -124,8 +126,23 @@ export const StudentsData = (props) => {
   //const { studData } = props;
   //const { name, grade, percentage, sports, careerChoices } = studData;
 
+  const [studentName, setStudentName] = useState(dataOfStudents);
+
+  const sortAscending = () => {
+    const sorted = [...dataOfStudents].sort((a, b) => a.name.localeCompare(b.name));
+    setStudentName(sorted);
+  };
+
+  const sortDescending = () => {
+    const sorted = [...dataOfStudents].sort((a, b) => b.name.localeCompare(a.name));
+    setStudentName(sorted);
+  };
+
+
   return (
     <div className="student-list-card">
+
+      <Search />
       <div className="student-count">Students - {dataOfStudents.length}</div>
 
       <ul>
@@ -164,9 +181,7 @@ const Content = () => {
     <div className="content">
       <NavBar />
        
-      
-
-    <div className="two-cards">
+       <div className="two-cards">
         <Filter />
         <StudentsData />
 

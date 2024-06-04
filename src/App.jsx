@@ -1,5 +1,6 @@
 import "./App.css";
-import "./Content.css";
+
+
 
 
 import Content from "./Content";
@@ -9,7 +10,7 @@ import Content from "./Content";
 function App() {
   return (
     <div>
-      
+     
       <Content />
     </div>
   );

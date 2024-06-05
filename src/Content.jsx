@@ -116,7 +116,7 @@ export const Filter = ({setPercentage, percentage}) => {
           </div>
           </div>
 
-          <button className="clear-filters">Clear Filters</button>
+          <button className="clear-filters"  onClick={handleClearFilterButton}>Clear Filters</button>
 
 
 

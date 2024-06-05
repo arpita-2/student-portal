@@ -42,11 +42,22 @@ export const NavBar = () => {
 };
 //filter section
 
-export const Filter = ({setPercentage, percentage}) => {
+export const Filter = ({setPercentage, setGrade, percentage,  grade}) => {
   const handlePercentageChange = (event) => {
     const percentageVal = Number(event.target.value);
     setPercentage(percentageVal);
   }
+
+  const handleRadioChange = (event) => {
+    const radioChangeFilter = Number(event.target.value);
+    setGrade(radioChangeFilter);
+  }
+
+  const handleClearFilterButton = () => {
+setPercentage(50);
+setGrade(null);
+  }
+
 
 
   return (
@@ -61,7 +72,8 @@ export const Filter = ({setPercentage, percentage}) => {
 
 
         <div className="percentage-filter">
-          <label htmlFor="percentage-slider">Percentage Filter</label>
+          <label htmlFor="percentage-slider">Percentage Filter: {percentage}</label>
+          
           <input
             type="range"
             id="percentage-slider"
@@ -77,15 +89,15 @@ export const Filter = ({setPercentage, percentage}) => {
         <div className="grade-filter">
           <h3>Grades Filter</h3>
           <div>
-            <input type="radio" id="grade10" name="grade" value="10" />
+            <input type="radio" id="grade10" name="grade" value="10" onClick={handleRadioChange} />
             <label htmlFor="grade10">10 Grade</label>
           </div>
           <div>
-            <input type="radio" id="grade11" name="grade" value="11" />
+            <input type="radio" id="grade11" name="grade" value="11" onClick={handleRadioChange}/>
             <label htmlFor="grade11">11 Grade</label>
           </div>
           <div>
-            <input type="radio" id="grade12" name="grade" value="12" />
+            <input type="radio" id="grade12" name="grade" value="12" onClick={handleRadioChange}/>
             <label htmlFor="grade12">12 Grade</label>
           </div>
         </div>
@@ -129,7 +141,7 @@ export const Filter = ({setPercentage, percentage}) => {
 
 
 
-export const StudentsData = ({percentage}) => {
+export const StudentsData = ({percentage, grade}) => {
   //stuData is prop. Then did destructuring of prop.
   //const { studData } = props;
   //const { name, grade, percentage, sports, careerChoices } = studData;
@@ -140,7 +152,10 @@ export const StudentsData = ({percentage}) => {
     (student) => student.percentage >= percentage
   );
 
-  console.log(percentageFilteredData);
+ 
+  const gradeFilterData = grade
+  ?percentageFilteredData.filter((student) => student.grade === grade)
+  : percentageFilteredData
 
   
 
@@ -159,10 +174,10 @@ export const StudentsData = ({percentage}) => {
     <div className="student-list-card">
 
       <Search />
-      <div className="student-count">Students - {dataOfStudents.length}</div>
+      <div className="student-count">Students - {gradeFilterData.length}</div>
 
       <ul>
-      {percentageFilteredData.map((student, index) => (
+      {gradeFilterData.map((student, index) => (
           <li key={index} className="student-card">
             
             <div className="student-info-container">
@@ -195,14 +210,16 @@ export const StudentsData = ({percentage}) => {
 const Content = () => {
 
   const [percentage, setPercentage] = useState(50);
+  const [grade, setGrade] = useState(null);
   return (
     <div className="content">
       <NavBar />
        
        <div className="two-cards">
-        <Filter setPercentage = {setPercentage}
-        percentage={percentage}/>
-        <StudentsData percentage = {percentage} />
+        <Filter setPercentage = {setPercentage} setGrade = {setGrade}
+        percentage={percentage}  grade ={grade}/>
+
+        <StudentsData percentage = {percentage} grade = {grade} />
 
       </div>
     </div>

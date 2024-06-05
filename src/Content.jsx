@@ -42,7 +42,13 @@ export const NavBar = () => {
 };
 //filter section
 
-export const Filter = () => {
+export const Filter = ({setPercentage, percentage}) => {
+  const handlePercentageChange = (event) => {
+    const percentageVal = Number(event.target.value);
+    setPercentage(percentageVal);
+  }
+
+
   return (
     <div className="filter-card">
       <div className="filter-section">
@@ -62,6 +68,8 @@ export const Filter = () => {
             min="0"
             max="100" 
             defaultValue="50"
+            value={percentage}
+            onChange={handlePercentageChange}
           />
         </div>
 
@@ -121,22 +129,30 @@ export const Filter = () => {
 
 
 
-export const StudentsData = (props) => {
+export const StudentsData = ({percentage}) => {
   //stuData is prop. Then did destructuring of prop.
   //const { studData } = props;
   //const { name, grade, percentage, sports, careerChoices } = studData;
 
   const [studentName, setStudentName] = useState(dataOfStudents);
 
-  const sortAscending = () => {
-    const sorted = [...dataOfStudents].sort((a, b) => a.name.localeCompare(b.name));
-    setStudentName(sorted);
-  };
+  const percentageFilteredData = dataOfStudents.filter(
+    (student) => student.percentage >= percentage
+  );
 
-  const sortDescending = () => {
-    const sorted = [...dataOfStudents].sort((a, b) => b.name.localeCompare(a.name));
-    setStudentName(sorted);
-  };
+  console.log(percentageFilteredData);
+
+  
+
+  // const sortAscending = () => {
+  //   const sorted = [...dataOfStudents].sort((a, b) => a.name.localeCompare(b.name));
+  //   setStudentName(sorted);
+  // };
+
+  // const sortDescending = () => {
+  //   const sorted = [...dataOfStudents].sort((a, b) => b.name.localeCompare(a.name));
+  //   setStudentName(sorted);
+  // };
 
 
   return (
@@ -146,7 +162,7 @@ export const StudentsData = (props) => {
       <div className="student-count">Students - {dataOfStudents.length}</div>
 
       <ul>
-      {dataOfStudents.map((student, index) => (
+      {percentageFilteredData.map((student, index) => (
           <li key={index} className="student-card">
             
             <div className="student-info-container">
@@ -177,13 +193,16 @@ export const StudentsData = (props) => {
 
 
 const Content = () => {
+
+  const [percentage, setPercentage] = useState(50);
   return (
     <div className="content">
       <NavBar />
        
        <div className="two-cards">
-        <Filter />
-        <StudentsData />
+        <Filter setPercentage = {setPercentage}
+        percentage={percentage}/>
+        <StudentsData percentage = {percentage} />
 
       </div>
     </div>

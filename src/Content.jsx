@@ -68,6 +68,17 @@ export const Filter = ({
     setIsAscending(false);
   };
 
+  const handleSportsFilter = (event) => {
+    const sportsFilter = event.target.checked;
+    const sportsValue = event.target.value;
+
+    if (sportsFilter) {
+      setSports([...sports, sportsValue]);
+    } else {
+      setSports(sports.filter((sport) => sport !== sportsValue));
+    }
+  };
+
   const handleClearFilterButton = () => {
     setPercentage(50);
     setGrade(null);
@@ -144,8 +155,8 @@ export const Filter = ({
               id="cricket"
               name="sports"
               value="Cricket"
-              // onChange={handleSportsFilter}
-              // checked={sports === Cricket}
+              onChange={handleSportsFilter}
+              checked={sports.includes("Cricket")}
             />
             <label htmlFor="cricket">Cricket</label>
           </div>
@@ -155,8 +166,8 @@ export const Filter = ({
               id="chess"
               name="sports"
               value="Chess"
-              // onChange={handleSportsFilter}
-              // checked={sports === Chess}
+              onChange={handleSportsFilter}
+              checked={sports.includes("Chess")}
             />
             <label htmlFor="chess">Chess</label>
           </div>
@@ -166,8 +177,8 @@ export const Filter = ({
               id="tennis"
               name="sports"
               value="Tennis"
-              // onChange={handleSportsFilter}
-              // checked={sports === }
+              onChange={handleSportsFilter}
+              checked={sports.includes("Tennis")}
             />
             <label htmlFor="tennis">Tennis</label>
           </div>
@@ -175,23 +186,25 @@ export const Filter = ({
           <div>
             <input
               type="checkbox"
-              id="tennis"
+              id="basket"
               name="sports"
-              value="Tennis"
-              // onChange={handleSportsFilter}
+              value="Basket"
+              onChange={handleSportsFilter}
+              checked={sports.includes("Basket")}
             />
-            <label htmlFor="tennis">Basket Ball</label>
+            <label htmlFor="basket">Basket Ball</label>
           </div>
 
           <div>
             <input
               type="checkbox"
-              id="tennis"
+              id="badminton"
               name="sports"
-              value="Tennis"
-              // onChange={handleSportsFilter}
+              value="Badminton"
+              onChange={handleSportsFilter}
+              checked={sports.includes("Badminton")}
             />
-            <label htmlFor="tennis">Badminton</label>
+            <label htmlFor="badminton">Badminton</label>
           </div>
         </div>
 
@@ -233,13 +246,20 @@ export const StudentsData = ({
       )
     : sortingData;
 
+  const sportsFilterData =
+    sports.length > 0
+      ? searchFilterData.filter((student) =>
+          sports.every((sport) => student.sports.includes(sport))
+        )
+      : searchFilterData;
+
   return (
     <div className="student-list-card">
       <Search setSearchFilter={setSearchFilter} />
       <div className="student-count">Students - {searchFilterData.length}</div>
 
       <ul>
-        {searchFilterData.map((student, index) => (
+        {sportsFilterData.map((student, index) => (
           <li key={index} className="student-card">
             <div className="student-info-container">
               <div className="avatar">

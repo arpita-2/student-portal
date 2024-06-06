@@ -248,8 +248,11 @@ export const StudentsData = ({
 
   const sportsFilterData =
     sports.length > 0
-      ? searchFilterData.filter((student) =>
-          sports.every((sport) => student.sports.includes(sport))
+      ? searchFilterData.filter(
+          (student) => sports.every((sport) => student.sports.includes(sport))
+          // .includes is a method to check whether that particular value is present or not. if it is not present
+          //on that particular array, it returns false.
+          //.every array method is used to check whether it is satisfying the condition or not
         )
       : searchFilterData;
 

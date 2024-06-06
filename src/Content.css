@@ -1,24 +1,18 @@
-
-
 .search-bar {
   padding: 8px;
   width: 100%;
   margin-bottom: 20px;
   position: sticky;
   top: 68px;
-  
 }
 
 .search-bar-input {
   width: 90%;
   background-color: black;
-  border-radius: .375rem;
+  border-radius: 0.375rem;
   height: 2.25rem;
+  color: #ccc;
 }
-
-
-
-
 
 /*Navbar===================================================================================*/
 
@@ -26,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   background-color: black;
   color: #fff;
   padding: 10px 20px;
@@ -61,50 +55,46 @@
   color: #ccc;
 }
 
+/*Navbar====================================================================================================*/
 
+/*Content==================================================================================================*/
 
-  /*Navbar====================================================================================================*/
+.filter-card {
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+  border: 1px solid rgb(75, 67, 67);
+  border-radius: 5px;
+  margin: 30px 0px;
+}
 
-  /*Content==================================================================================================*/
+.filter-section {
+  margin-bottom: 20px;
+}
 
-  .filter-card {
-    background-color: black;
-    color: #fff;
-    padding: 20px;
-    border: 1px solid rgb(75, 67, 67);
-    border-radius: 5px;
-    margin: 30px 0px;
-    
-  }
+.order-buttons button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
 
-  .filter-section {
-    margin-bottom: 20px;
-  }
-  
-  .order-buttons button {
-    background-color: #444;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
+.percentage-filter {
+  margin-top: 20px;
+}
 
-  .percentage-filter {
-    margin-top: 20px;
-  }
-  
-  .percentage-filter label {
-    display: block;
-    margin-bottom: 5px;
-  }
+.percentage-filter label {
+  display: block;
+  margin-bottom: 5px;
+}
 
-
-  .grade-filter {
-    display: flex;
-    flex-direction: column;
-  }
-  .grade-filter,
+.grade-filter {
+  display: flex;
+  flex-direction: column;
+}
+.grade-filter,
 .sports-filter {
   margin-top: 20px;
 }
@@ -133,17 +123,10 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-
-
-
-
 .grade-filter {
   margin-left: auto;
   display: flex;
-  
 }
-
-
 
 .student-list-card {
   background-color: #000;
@@ -153,25 +136,21 @@
   grid-column-start: 2;
   grid-column-end: 5;
   grid-column: 2 / 5;
-  
 }
-
 
 .student-count {
   margin-bottom: 20px;
   font-weight: bold;
 }
 
- .student-card { 
- 
-   display: flex;
-   align-items: center;
-   margin-bottom: 10px; 
+.student-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
   padding: 10px;
   /*background-color: #222;*/
-  border-radius: 5px;  
- } 
-
+  border-radius: 5px;
+}
 
 .avatar {
   margin-right: 10px;
@@ -187,7 +166,6 @@
   margin: 0;
   font-size: 16px;
   text-align: left;
-  
 }
 
 .student-info {
@@ -198,40 +176,31 @@
   gap: 16px;
 }
 
-.student-info-container  {
-
+.student-info-container {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  
+
   gap: 12px;
   border: 1px solid rgb(75, 67, 67);
   border-radius: 50px;
-  
 }
 
 .student-grade-container {
- text-align: right;
-  
+  text-align: right;
 }
 
 .student-grade {
-
-  
-  
 }
 
 .student-percentage p {
-
   text-align: right;
-
 }
 
-.student-sports  {
+.student-sports {
   font-size: 14px;
   color: #a1a1aa;
 }
-
 
 .career-choices {
   font-size: 14px;
@@ -241,8 +210,3 @@
 .student-count {
   text-align: right;
 }
-
-
-
-
-  

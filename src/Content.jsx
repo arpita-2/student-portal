@@ -43,10 +43,12 @@ export const Filter = ({
   setPercentage,
   setGrade,
   setSports,
+  setIsAscending,
 
   percentage,
   grade,
   sports,
+  isAscending,
 }) => {
   const handlePercentageChange = (event) => {
     const percentageVal = Number(event.target.value);
@@ -58,23 +60,19 @@ export const Filter = ({
     setGrade(radioChangeFilter);
   };
 
-  // const handleSportsFilter = (event) => {
-  //   const sportsChangeFilter = event.target.value;
-  //   setSports(sportsChangeFilter);
-  // };
-
   const handleClickAscending = () => {
-    setStudentName(dataOfStudents);
+    setIsAscending(true);
   };
 
   const handleClickDescending = () => {
-    setStudentName(dataOfStudents);
+    setIsAscending(false);
   };
 
   const handleClearFilterButton = () => {
     setPercentage(50);
     setGrade(null);
     setSports([]);
+    setIsAscending(true);
   };
 
   return (
@@ -211,6 +209,7 @@ export const StudentsData = ({
   sports,
   searchFilter,
   setSearchFilter,
+  isAscending,
 }) => {
   //stuData is prop. Then did destructuring of prop.
   //const { studData } = props;
@@ -224,11 +223,15 @@ export const StudentsData = ({
     ? percentageFilteredData.filter((student) => student.grade === grade)
     : percentageFilteredData;
 
+  const sortingData = isAscending
+    ? gradeFilterData.sort((a, b) => a.name.localeCompare(b.name))
+    : gradeFilterData.sort((a, b) => b.name.localeCompare(a.name));
+
   const searchFilterData = searchFilter
-    ? gradeFilterData.filter((student) =>
+    ? sortingData.filter((student) =>
         student.name.toLowerCase().includes(searchFilter.toLowerCase())
       )
-    : gradeFilterData;
+    : sortingData;
 
   return (
     <div className="student-list-card">
@@ -274,6 +277,7 @@ const Content = () => {
   const [grade, setGrade] = useState(null);
   const [sports, setSports] = useState([]);
   const [searchFilter, setSearchFilter] = useState("");
+  const [isAscending, setIsAscending] = useState(true);
 
   return (
     <div className="content">
@@ -287,6 +291,8 @@ const Content = () => {
           percentage={percentage}
           grade={grade}
           sports={sports}
+          setIsAscending={setIsAscending}
+          isAscending={isAscending}
         />
 
         <StudentsData
@@ -295,6 +301,7 @@ const Content = () => {
           sports={sports}
           searchFilter={searchFilter}
           setSearchFilter={setSearchFilter}
+          isAscending={isAscending}
         />
       </div>
     </div>

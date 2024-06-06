@@ -2,7 +2,11 @@ import "./Content.css";
 
 import { dataOfStudents } from "./utils/mockdata";
 import Search from "./components/Search";
+import PercentagOfStudent from "./components/Percentage";
+import Grade from "./components/Grade";
+
 import { useState } from "react";
+import OrderButtons from "./components/AscDsc";
 
 //navigation bar
 
@@ -48,26 +52,7 @@ export const Filter = ({
   percentage,
   grade,
   sports,
-  isAscending,
 }) => {
-  const handlePercentageChange = (event) => {
-    const percentageVal = Number(event.target.value);
-    setPercentage(percentageVal);
-  };
-
-  const handleRadioChange = (event) => {
-    const radioChangeFilter = Number(event.target.value);
-    setGrade(radioChangeFilter);
-  };
-
-  const handleClickAscending = () => {
-    setIsAscending(true);
-  };
-
-  const handleClickDescending = () => {
-    setIsAscending(false);
-  };
-
   const handleSportsFilter = (event) => {
     const sportsFilter = event.target.checked;
     const sportsValue = event.target.value;
@@ -89,63 +74,9 @@ export const Filter = ({
   return (
     <div className="filter-card">
       <div className="filter-section">
-        <div className="order-buttons">
-          <button onClick={handleClickAscending}>A-Z</button>
-          <button onClick={handleClickDescending}>Z-A</button>
-        </div>
-
-        <div className="percentage-filter">
-          <label htmlFor="percentage-slider">
-            Percentage Filter: {percentage}
-          </label>
-
-          <input
-            type="range"
-            id="percentage-slider"
-            min="0"
-            max="100"
-            defaultValue="50"
-            value={percentage}
-            onChange={handlePercentageChange}
-          />
-        </div>
-
-        <div className="grade-filter">
-          <h3>Grades Filter</h3>
-          <div>
-            <input
-              type="radio"
-              id="grade10"
-              name="grade"
-              value="10"
-              onClick={handleRadioChange}
-              checked={grade === 10}
-            />
-            <label htmlFor="grade10">10 Grade</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="grade11"
-              name="grade"
-              value="11"
-              onClick={handleRadioChange}
-              checked={grade === 11}
-            />
-            <label htmlFor="grade11">11 Grade</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="grade12"
-              name="grade"
-              value="12"
-              onClick={handleRadioChange}
-              checked={grade === 12}
-            />
-            <label htmlFor="grade12">12 Grade</label>
-          </div>
-        </div>
+        <OrderButtons setIsAscending={setIsAscending} />
+        <PercentagOfStudent />
+        <Grade />
 
         <div className="sports-filter">
           <h3>Sports Filter</h3>

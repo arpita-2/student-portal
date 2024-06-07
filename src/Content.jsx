@@ -75,8 +75,11 @@ export const Filter = ({
     <div className="filter-card">
       <div className="filter-section">
         <OrderButtons setIsAscending={setIsAscending} />
-        <PercentagOfStudent />
-        <Grade />
+        <PercentagOfStudent
+          setPercentage={setPercentage}
+          percentage={percentage}
+        />
+        <Grade setGrade={setGrade} grade={grade} />
 
         <div className="sports-filter">
           <h3>Sports Filter</h3>
